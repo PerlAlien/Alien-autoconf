@@ -1,0 +1,13 @@
+use alienfile;
+
+probe sub { 'share' };
+
+share {
+  plugin Download => (
+    url => 'ftp://ftp.gnu.org/gnu/autoconf',
+    filter => qr/^autoconf-.*\.tar\.gz$/,
+    version => qr/([0-9\.]+)/,
+  );
+  plugin Extract => 'tar.gz',
+  plugin 'Build::Autoconf' => ();
+};
