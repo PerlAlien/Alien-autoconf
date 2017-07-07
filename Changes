@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Set PERL environment variable (except on MSWin32)
 
 0.02      2017-06-27 05:08:34 -0400
   - Fix requirements for Windows
