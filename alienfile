@@ -44,7 +44,7 @@ share {
             "  \$ENV{AUTOCONF}            ||= File::Spec->catfile(\$dist_dir, 'bin/autoconf');\n",
             "  \$ENV{AUTOHEADER}          ||= File::Spec->catfile(\$dist_dir, 'bin/autoheader');\n",
             "  \$ENV{AUTOM4TE_CFG}        ||= File::Spec->catfile(\$dist_dir, 'share/autoconf/autom4te.blib.cfg')\n",
-            "    if \$dist_dir =~ /blib/;\n",
+            "    if \$d[-5] eq 'lib' && \$d[-6] eq 'blib'\n",
             "}\n",
             @lines
           );
