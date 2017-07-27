@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.04_01   2017-07-27 05:39:48 -0400
   - Support running out of a blib
 
 0.03      2017-07-07 12:14:32 -0400
