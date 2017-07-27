@@ -54,7 +54,7 @@ share {
         elsif($shebang =~ /^#!.*sh/)
         {
           @lines = (
-            "\${AUTOM4TE=`alien_autoconf_root`'/bin/autom4te'}",
+            ": \${AUTOM4TE=`alien_autoconf_root`'/bin/autom4te'}\n",
             @lines
           );
           $exe->spew($shebang, @lines);
