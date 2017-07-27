@@ -22,11 +22,6 @@ else
 
 my $dist_dir = path(Alien::autoconf->dist_dir);
 local $ENV{AUTOM4TE}            = $dist_dir->child('bin/autom4te');
-local $ENV{autom4te_perllibdir} = $dist_dir->child('share/autoconf');
-local $ENV{AC_MACRODIR}         = $dist_dir->child('share/autoconf');
-local $ENV{AUTOCONF}            = $dist_dir->child('bin/autoconf');
-local $ENV{AUTOHEADER}          = $dist_dir->child('bin/autoheader');
-local $ENV{AUTOM4TE_CFG}        = $dist_dir->child('share/autoconf/autom4te.blib.cfg');
 
 run_ok($wrapper->($_, '--version'))
   ->success

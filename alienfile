@@ -3,8 +3,9 @@ use alienfile;
 probe sub { 'share' };
 
 share {
-  requires 'Alien::m4' => '0.11';
+  requires 'Alien::m4'   => '0.11';
   requires 'Alien::MSYS' => '0.08' if $^O eq 'MSWin32';
+  requires 'Path::Tiny'  => 0;
 
   meta->prop->{env}->{PERL} = $^X unless $^O eq 'MSWin32';
 
@@ -14,5 +15,54 @@ share {
     version => qr/([0-9\.]+)/,
   );
   plugin Extract => 'tar.gz',
+  
   plugin 'Build::Autoconf' => ();
+  
+  meta->before_hook(
+    gather_share => sub {
+      my($build) = @_;
+      my $bin = Path::Tiny->new('bin');
+
+      # patch executables
+      foreach my $exe ($bin->children)
+      {
+        my($shebang, @lines) = $exe->lines;
+        if($shebang =~ /^#!.*perl/)
+        {
+          @lines = (
+            "BEGIN {\n",
+            "  use strict;\n",
+            "  use warnings;\n",
+            "  use Path::Tiny ();\n",
+            "  my \$dist_dir = Path::Tiny->new(__FILE__)->absolute->parent->parent;\n",
+            "  \$ENV{AUTOM4TE}            ||= \$dist_dir->child('bin/autom4te');\n",
+            "  \$ENV{autom4te_perllibdir} ||= \$dist_dir->child('share/autoconf');\n",
+            "  \$ENV{AC_MACRODIR}         ||= \$dist_dir->child('share/autoconf');\n",
+            "  \$ENV{AUTOCONF}            ||= \$dist_dir->child('bin/autoconf');\n",
+            "  \$ENV{AUTOHEADER}          ||= \$dist_dir->child('bin/autoheader');\n",
+            "  \$ENV{AUTOM4TE_CFG}        ||= \$dist_dir->child('share/autoconf/autom4te.blib.cfg')\n",
+            "    if \$dist_dir =~ /blib/;\n",
+            "}\n",
+            @lines
+          );
+          $exe->spew($shebang, @lines);
+          $exe->chmod("0755");
+        }
+        elsif($shebang =~ /^#!.*sh/)
+        {
+        }
+      }
+      
+      # patch autom4te config
+      {
+        my $orig = Path::Tiny->new('share/autoconf/autom4te.cfg');
+        my $new  = Path::Tiny->new('share/autoconf/autom4te.blib.cfg');
+        my $stage = Path::Tiny->new($build->install_prop->{stage})->child('share/autoconf')->stringify;
+        $orig->copy($new);
+        $new->edit_lines(sub {
+          s/--prepend-include '(.*)'/--prepend-include '$stage'/;
+        });
+      }
+    },
+  );
 };
