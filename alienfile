@@ -53,6 +53,12 @@ share {
         }
         elsif($shebang =~ /^#!.*sh/)
         {
+          @lines = (
+            "\${AUTOM4TE=`alien_autoconf_root`'/bin/autom4te'}",
+            @lines
+          );
+          $exe->spew($shebang, @lines);
+          $exe->chmod("0755");
         }
       }
       
@@ -65,6 +71,21 @@ share {
         $new->edit_lines(sub {
           s/--prepend-include '(.*)'/--prepend-include '$stage'/;
         });
+      }
+      
+      # script to compute path to autoconf root
+      {
+        my $exe = Path::Tiny->new('bin/alien_autoconf_root');
+        $exe->spew(
+          "#!$ENV{PERL}\n",
+          "use File::Spec;\n",
+          "my(\$v,\$d) = File::Spec->splitpath(File::Spec->rel2abs(__FILE__));\n",
+          "my \@d = File::Spec->splitdir(\$d);\n",
+          "pop \@d for 1..2;\n",
+          "my \$dist_dir = File::Spec->catdir(\$v,\@d);\n",
+          "print \$dist_dir\n",
+        );
+        $exe->chmod('0700');
       }
     },
   );

@@ -21,7 +21,6 @@ else
 }
 
 my $dist_dir = path(Alien::autoconf->dist_dir);
-local $ENV{AUTOM4TE}            = $dist_dir->child('bin/autom4te');
 
 run_ok($wrapper->($_, '--version'))
   ->success
