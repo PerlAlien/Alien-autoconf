@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.04_02   2017-07-27 06:02:20 -0400
   - Fix small but important syntax error introduced in 0.04_01
 
 0.04_01   2017-07-27 05:39:48 -0400
