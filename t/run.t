@@ -26,6 +26,7 @@ local $ENV{autom4te_perllibdir} = $dist_dir->child('share/autoconf');
 local $ENV{AC_MACRODIR}         = $dist_dir->child('share/autoconf');
 local $ENV{AUTOCONF}            = $dist_dir->child('bin/autoconf');
 local $ENV{AUTOHEADER}          = $dist_dir->child('bin/autoheader');
+local $ENV{AUTOM4TE_CFG}        = $dist_dir->child('share/autoconf/autom4te.blib.cfg');
 
 run_ok($wrapper->($_, '--version'))
   ->success
@@ -34,8 +35,6 @@ run_ok($wrapper->($_, '--version'))
 my $configure_ac = path('corpus/configure.ac')->absolute;
 
 subtest 'try with very basic configure.ac' => sub {
-
-  skip_all 'borked';
 
   local $CWD = tempdir( CLEANUP => 1 );
 
