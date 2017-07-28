@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Support running out of a blib on Strawberry Perl
 
 0.04_02   2017-07-27 06:02:20 -0400
   - Fix small but important syntax error introduced in 0.04_01
