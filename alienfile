@@ -37,7 +37,7 @@ share {
             "  my(\$v,\$d) = File::Spec->splitpath(File::Spec->rel2abs(__FILE__));\n",
             "  my \@d = File::Spec->splitdir(\$d);\n",
             "  pop \@d for 1..2;\n",
-            "  my \$dist_dir = File::Spec->catpath(\$v,File::Spec->catdir(\@d));\n",
+            "  my \$dist_dir = File::Spec->catpath(\$v,File::Spec->catdir(\@d), '');\n",
             "  \$ENV{AUTOM4TE}            ||= File::Spec->catfile(\$dist_dir, 'bin/autom4te');\n",
             "  \$ENV{autom4te_perllibdir} ||= File::Spec->catdir(\$dist_dir, 'share/autoconf');\n",
             "  \$ENV{AC_MACRODIR}         ||= File::Spec->catdir(\$dist_dir, 'share/autoconf');\n",
@@ -83,7 +83,7 @@ share {
           "my(\$v,\$d) = File::Spec->splitpath(File::Spec->rel2abs(__FILE__));\n",
           "my \@d = File::Spec->splitdir(\$d);\n",
           "pop \@d for 1..2;\n",
-          "my \$dist_dir = File::Spec->catpath(\$v,File::Spec->catdir(\@d));\n",
+          "my \$dist_dir = File::Spec->catpath(\$v,File::Spec->catdir(\@d), '');\n",
           "print \$dist_dir\n",
         );
         $exe->chmod('0700');
