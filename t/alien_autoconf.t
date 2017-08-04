@@ -1,4 +1,4 @@
-use Test2::V0;
+use Test2::V0 -no_srand => 1;
 use Test::Alien;
 use Alien::autoconf;
 use Env qw( @PATH );
@@ -11,8 +11,10 @@ alien_ok 'Alien::autoconf';
 my $wrapper;
 if($^O eq 'MSWin32')
 {
-  require Alien::MSYS;
-  push @PATH, Alien::MSYS::msys_path();
+  eval {
+    require Alien::MSYS;
+    push @PATH, Alien::MSYS::msys_path();
+  };
   $wrapper = sub { [ 'sh', -c => "@_" ] };
 }
 else
