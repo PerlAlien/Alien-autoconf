@@ -9,7 +9,7 @@ In your script or module:
     use Alien::autoconf;
     use Env qw( @PATH );
     
-    unshift @ENV, Alien::autoconf->bin_dir;
+    unshift @PATH, Alien::autoconf->bin_dir;
 
 # DESCRIPTION
 
