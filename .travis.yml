@@ -3,6 +3,7 @@ sudo: false
 
 install:
   - perlbrew list
+  - autoconf --version
   - cpanm -n App::af 
   - af missing | cpanm -n
   - dzil authordeps --missing | cpanm -n
