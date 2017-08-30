@@ -1,10 +1,13 @@
 language: perl
+
 sudo: false
+dist: trusty
 
 install:
   - perlbrew list
-  - cpanm -n App::af 
+  - cpanm -n App::af Sort::Versions
   - af missing | cpanm -n
+  - autoconf --version
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps   --missing | cpanm -n
 
@@ -19,3 +22,11 @@ perl:
 
 script:
   - dzil test -v
+
+env:
+  global:
+    - ALIEN_BASE_NO_ABMB=1
+    - PATH=$HOME/mytravis/bin:$PATH
+  matrix:
+    - ALIEN_INSTALL_TYPE=share
+    - ALIEN_INSTALL_TYPE=system
