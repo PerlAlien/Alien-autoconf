@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$ALIEN_INSTALL_TYPE" == "system" ]; then
+
+  root=`pwd`
+  mkdir -p ~/mytravis/src
+  cd ~/mytravis
+  opt=`pwd`
+  cd src
+  af download -f $root/alienfile
+  tar xvf autoconf-*.tar.gz
+  rm -f *.tar.gz
+  cd autoconf-*
+  ./configure --prefix=$opt && make && make install
+
+fi
