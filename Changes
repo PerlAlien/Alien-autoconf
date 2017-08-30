@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Probe for system autoconf, so long as it is 2.69 or better
 
 0.09      2017-08-24 17:24:05 -0400
   - Production release identical to 0.08_01
