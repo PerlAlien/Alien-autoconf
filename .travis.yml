@@ -5,7 +5,7 @@ dist: trusty
 
 install:
   - perlbrew list
-  - cpanm -n App::af
+  - cpanm -n App::af Sort::Versions
   - af missing | cpanm -n
   - autoconf --version
   - dzil authordeps --missing | cpanm -n
