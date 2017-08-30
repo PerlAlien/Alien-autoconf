@@ -10,7 +10,6 @@ install:
   - autoconf --version
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps   --missing | cpanm -n
-  - ./maint/system-autoconf
 
 perl:
   - "5.14"
