@@ -1,5 +1,7 @@
 language: perl
+
 sudo: false
+dist: trusty
 
 install:
   - perlbrew list
