@@ -5,7 +5,7 @@ dist: trusty
 
 install:
   - perlbrew list
-  - cpanm -n App::af Sort::Versions
+  - cpanm -n App::af
   - af missing | cpanm -n
   - autoconf --version
   - dzil authordeps --missing | cpanm -n
@@ -26,7 +26,6 @@ script:
 env:
   global:
     - ALIEN_BASE_NO_ABMB=1
-    - PATH=$HOME/mytravis/bin:$PATH
   matrix:
     - ALIEN_INSTALL_TYPE=share
     - ALIEN_INSTALL_TYPE=system
