@@ -7,10 +7,10 @@ install:
   - perlbrew list
   - cpanm -n App::af Sort::Versions
   - af missing | cpanm -n
-  - ./maint/system-autoconf
   - autoconf --version
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps   --missing | cpanm -n
+  - ./maint/system-autoconf
 
 perl:
   - "5.14"
