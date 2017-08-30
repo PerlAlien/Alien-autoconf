@@ -19,3 +19,10 @@ perl:
 
 script:
   - dzil test -v
+
+env:
+  global:
+    - ALIEN_BASE_NO_ABMB=1
+  matrix:
+    - ALIEN_INSTALL_TYPE=share
+    - ALIEN_INSTALL_TYPE=system
