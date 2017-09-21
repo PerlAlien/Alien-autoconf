@@ -5,8 +5,9 @@ dist: trusty
 
 install:
   - perlbrew list
-  - cpanm -n App::af Sort::Versions
-  - af missing | cpanm -n
+  - ./maint/travis-install-mods
+  - af missing --precompile | cpanm -n
+  - af missing              | cpanm -n
   - autoconf --version
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps   --missing | cpanm -n
