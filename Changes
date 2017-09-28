@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Reverted experimental behavior probe for system introduced in 0.10_01.
+    For rationale, please see new CAVEATS section
 
 0.10_01   2017-08-30 14:50:44 -0400
   - [EXPERIMENTAL] Probe for system autoconf, so long as it is 2.69 or better
