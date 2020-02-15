@@ -26,8 +26,6 @@ else
 
 my $dist_dir = path(Alien::autoconf->dist_dir);
 
-run_ok($wrapper->('which', 'm4'));
-
 run_ok($wrapper->($_, '--version'))
   ->success
   ->note for qw( m4 autoconf autoheader autom4te autoreconf autoscan autoupdate ifnames );
