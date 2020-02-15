@@ -1,4 +1,4 @@
-# Alien::autoconf [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-autoconf.png)](http://travis-ci.org/Perl5-Alien/Alien-autoconf) ![macos](https://github.com/Perl5-Alien/Alien-autoconf/workflows/macos/badge.svg)
+# Alien::autoconf [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-autoconf.png)](http://travis-ci.org/Perl5-Alien/Alien-autoconf) ![macos](https://github.com/Perl5-Alien/Alien-autoconf/workflows/macos/badge.svg) ![windows](https://github.com/Perl5-Alien/Alien-autoconf/workflows/windows/badge.svg)
 
 Build or find autoconf
 
