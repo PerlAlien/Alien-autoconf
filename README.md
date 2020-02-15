@@ -6,31 +6,35 @@ Build or find autoconf
 
 From your script or module:
 
-    use Alien::autoconf;
-    use Env qw( @PATH );
-    
-    unshift @PATH, Alien::autoconf->bin_dir;
+```perl
+use Alien::autoconf;
+use Env qw( @PATH );
+
+unshift @PATH, Alien::autoconf->bin_dir;
+```
 
 From your alienfile:
 
-    use alienfile;
-    
-    share {
-      # Alien::Autotools will pull in:
-      #  - Alien::autoconf
-      #  - Alien::automake
-      #  - Alien::m4
-      #  - Alien::libtool
-      # all of which you will likely need.
-      requires 'Alien::Autotools';
-      plugin 'Build::Autoconf';
-      build [
-        'autoreconf -vfi',
-        '%{configure}',
-        '%{make}',
-        '%{make} install',
-      ];
-    };
+```perl
+use alienfile;
+
+share {
+  # Alien::Autotools will pull in:
+  #  - Alien::autoconf
+  #  - Alien::automake
+  #  - Alien::m4
+  #  - Alien::libtool
+  # all of which you will likely need.
+  requires 'Alien::Autotools';
+  plugin 'Build::Autoconf';
+  build [
+    'autoreconf -vfi',
+    '%{configure}',
+    '%{make}',
+    '%{make} install',
+  ];
+};
+```
 
 # DESCRIPTION
 
@@ -42,7 +46,9 @@ but if you are not able to convince them then you have this option.  There are c
 
 ## bin\_dir
 
-    my @dirs = Alien::autoconf->bin_dir;
+```perl
+my @dirs = Alien::autoconf->bin_dir;
+```
 
 Returns a list of directories that need to be added to the `PATH` in order to use `autoconf`.
 
