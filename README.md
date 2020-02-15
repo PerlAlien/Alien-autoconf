@@ -1,4 +1,4 @@
-# Alien::autoconf [![Build Status](https://secure.travis-ci.org/plicease/Alien-autoconf.png)](http://travis-ci.org/plicease/Alien-autoconf)
+# Alien::autoconf [![Build Status](https://secure.travis-ci.org/plicease/Alien-autoconf.png)](http://travis-ci.org/plicease/Alien-autoconf) ![windows](https://github.com/plicease/Alien-autoconf/workflows/windows/badge.svg) ![macos](https://github.com/plicease/Alien-autoconf/workflows/macos/badge.svg)
 
 Build or find autoconf
 
@@ -38,8 +38,8 @@ share {
 
 # DESCRIPTION
 
-This distribution provides autoconf so that it can be used by other Perl distributions that are on CPAN.  This is most commonly necessary when creating 
-other [Alien](https://metacpan.org/pod/Alien)s that target a autoconf project that does not ship with a `configure` script.  Ideally you should complain to the upstream developers, 
+This distribution provides autoconf so that it can be used by other Perl distributions that are on CPAN.  This is most commonly necessary when creating
+other [Alien](https://metacpan.org/pod/Alien)s that target a autoconf project that does not ship with a `configure` script.  Ideally you should complain to the upstream developers,
 but if you are not able to convince them then you have this option.  There are currently two such Aliens: [Alien::libuv](https://metacpan.org/pod/Alien::libuv) and [Alien::Hunspell](https://metacpan.org/pod/Alien::Hunspell).
 
 # METHODS
@@ -54,10 +54,10 @@ Returns a list of directories that need to be added to the `PATH` in order to us
 
 # CAVEATS
 
-This module is currently configured to _always_ do a share install.  This is because `system` installs for this alien are not reliable.  Please see 
-this issue for details: [https://github.com/plicease/Alien-autoconf/issues/2](https://github.com/plicease/Alien-autoconf/issues/2).  The good news is that most of the time you shouldn't need this module 
-_unless_ you are building another alien from source.  If your system provides the package that is targeted by the upstream alien I recommend using 
-that.  If you are packaging system packages for your platform then I recommend making sure the upstream alien uses the system library so you won't need 
+This module is currently configured to _always_ do a share install.  This is because `system` installs for this alien are not reliable.  Please see
+this issue for details: [https://github.com/plicease/Alien-autoconf/issues/2](https://github.com/plicease/Alien-autoconf/issues/2).  The good news is that most of the time you shouldn't need this module
+_unless_ you are building another alien from source.  If your system provides the package that is targeted by the upstream alien I recommend using
+that.  If you are packaging system packages for your platform then I recommend making sure the upstream alien uses the system library so you won't need
 to install this module.
 
 # SEE ALSO
