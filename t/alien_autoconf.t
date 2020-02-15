@@ -1,11 +1,13 @@
 use Test2::V0 -no_srand => 1;
 use Test::Alien;
+use Alien::m4;
 use Alien::autoconf;
 use Env qw( @PATH );
 use File::chdir;
 use File::Temp qw( tempdir );
 use Path::Tiny qw( path );
 
+alien_ok 'Alien::m4';
 alien_ok 'Alien::autoconf';
 
 my $wrapper;
