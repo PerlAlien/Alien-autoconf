@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - use https instead of http
 
 0.14      2018-02-01 12:59:58 -0500
   - Production release identical to 0.12_01
