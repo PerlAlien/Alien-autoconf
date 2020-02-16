@@ -24,9 +24,9 @@ else
 
 my $dist_dir = path(Alien::autoconf->dist_dir);
 
-run_ok($wrapper->($_, '--version'))
+run_ok($wrapper->($_, '--version'), "test if the --version options works with $_")
   ->success
-  ->note for qw( m4 autoconf autoheader autom4te autoreconf autoscan autoupdate ifnames );
+  ->note for (Alien::m4->exe, qw( autoconf autoheader autom4te autoreconf autoscan autoupdate ifnames ));
 
 my $configure_ac = path('corpus/configure.ac')->absolute;
 
