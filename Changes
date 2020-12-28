@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.17      2020-12-28 03:28:50 -0700
   - Update patches for more recent version of autoconf (gh#9, gh#10, majensen++)
 
 0.16      2020-02-16 06:14:49 -0700
