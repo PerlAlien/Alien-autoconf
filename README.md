@@ -69,7 +69,11 @@ to install this module.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Author: Graham Ollis <plicease@cpan.org>
+
+Contributors:
+
+Mark Jensen (MAJENSEN)
 
 # COPYRIGHT AND LICENSE
 
