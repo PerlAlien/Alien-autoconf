@@ -17,37 +17,23 @@ jobs:
       matrix:
         cip:
           - tag: "static"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.33"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.32"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.30"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.28"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.26"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.24"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.22"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.20"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.18"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.16"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.14"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.12"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.10"
-          - env: TMPDIR=/home/cip/tmp
-            tag: "5.8"
+          - tag: "5.33"
+          - tag: "5.32"
+          - tag: "5.30"
+          - tag: "5.28"
+          - tag: "5.26"
+          - tag: "5.24"
+          - tag: "5.22"
+          - tag: "5.20"
+          - tag: "5.18"
+          - tag: "5.16"
+          - tag: "5.14"
+          - tag: "5.12"
+          - tag: "5.10"
+          - tag: "5.8"
 
     env:
-      CIP_ENV: ${{ matrix.cip.env }}
+      CIP_ENV: TMPDIR=/home/cip/tmp
       CIP_TAG: ${{ matrix.cip.tag }}
 
 
