@@ -76,4 +76,22 @@ to install this module.
 
 =cut
 
+my %helper;
+
+foreach my $command (qw( autoconf autoheader autom4te autoreconf autoscan autoupdate ifnames ))
+{
+  if($^O eq 'MSWin32')
+  {
+    $helper{$command} = sub { qq{sh -c "$command "\$*"" --} };
+  }
+  else
+  {
+    $helper{$command} = sub { $command };
+  }
+}
+
+sub alien_helper {
+  return \%helper;
+}
+
 1;
