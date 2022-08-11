@@ -28,7 +28,7 @@ share {
   requires 'Alien::Autotools';
   plugin 'Build::Autoconf';
   build [
-    'autoreconf -vfi',
+    '%{autoreconf} -vfi',
     '%{configure}',
     '%{make}',
     '%{make} install',
@@ -51,6 +51,19 @@ my @dirs = Alien::autoconf->bin_dir;
 ```
 
 Returns a list of directories that need to be added to the `PATH` in order to use `autoconf`.
+
+# HELPERS
+
+This [Alien](https://metacpan.org/pod/Alien) provides the following helpers which will execute the corresponding command.  You want
+to use the helpers because they will use the correct incantation on Windows.
+
+- `autoconf`
+- `autoheader`
+- `autom4te`
+- `autoreconf`
+- `autoscan`
+- `autoupdate`
+- `ifname`
 
 # CAVEATS
 
