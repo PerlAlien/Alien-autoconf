@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Add helpers (gh#15)
 
 0.17      2020-12-28 03:28:50 -0700
   - Update patches for more recent version of autoconf (gh#9, gh#10, majensen++)

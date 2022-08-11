@@ -31,7 +31,7 @@ From your alienfile:
    requires 'Alien::Autotools';
    plugin 'Build::Autoconf';
    build [
-     'autoreconf -vfi',
+     '%{autoreconf} -vfi',
      '%{configure}',
      '%{make}',
      '%{make} install',
@@ -51,6 +51,29 @@ but if you are not able to convince them then you have this option.  There are c
  my @dirs = Alien::autoconf->bin_dir;
 
 Returns a list of directories that need to be added to the C<PATH> in order to use C<autoconf>.
+
+=head1 HELPERS
+
+This L<Alien> provides the following helpers which will execute the corresponding command.  You want
+to use the helpers because they will use the correct incantation on Windows.
+
+=over 4
+
+=item C<autoconf>
+
+=item C<autoheader>
+
+=item C<autom4te>
+
+=item C<autoreconf>
+
+=item C<autoscan>
+
+=item C<autoupdate>
+
+=item C<ifname>
+
+=back
 
 =head1 CAVEATS
 
