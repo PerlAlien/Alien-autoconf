@@ -1,4 +1,4 @@
-# Alien::autoconf ![linux](https://github.com/PerlAlien/Alien-autoconf/workflows/linux/badge.svg) ![macos](https://github.com/PerlAlien/Alien-autoconf/workflows/macos/badge.svg) ![windows](https://github.com/PerlAlien/Alien-autoconf/workflows/windows/badge.svg)
+# Alien::autoconf ![static](https://github.com/PerlAlien/Alien-autoconf/workflows/static/badge.svg) ![linux](https://github.com/PerlAlien/Alien-autoconf/workflows/linux/badge.svg) ![macos](https://github.com/PerlAlien/Alien-autoconf/workflows/macos/badge.svg) ![windows](https://github.com/PerlAlien/Alien-autoconf/workflows/windows/badge.svg)
 
 Build or find autoconf
 
