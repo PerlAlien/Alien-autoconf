@@ -1,3 +1,5 @@
 /Alien-autoconf-*
 /.build
 *.swp
+*.old
+*.orig
